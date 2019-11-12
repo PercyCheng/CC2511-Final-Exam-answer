@@ -75,7 +75,7 @@ volatile char c;
 void Inhr1_OnRxChar(void)
 {
   /* Write your code here ... */
-	Inhr1_RecvChar(&c);
+	//Inhr1_RecvChar(&c);
 }
 
 /*
