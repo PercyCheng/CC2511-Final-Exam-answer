@@ -59,8 +59,8 @@ extern volatile char c;
 int monitorTime = 200;
 
 uint16 value;
-volatile uint16 x_smooth = 20;
-volatile uint16 x_measured;
+volatile float x_smooth = 20;
+volatile float x_measured;
 
 
 
@@ -84,10 +84,9 @@ int main(void)
 			cleanPromot();
 			Red_SetRatio16(0);
 			Green_SetRatio16(0);
-			do {
-				x_measured = calculateX_measured();
-				x_smooth = calculateX_smooth(x_measured);
-			} while (c != 'q');
+			x_measured = calculateX_measured();
+			x_smooth = calculateX_smooth(x_measured);
+			
 
 		} else if (c == 'g') {
 			cleanPromot();
@@ -155,7 +154,7 @@ int main(void)
 				} else {
 					score--;
 					Term1_MoveTo(3, 10);
-					Term1_EraseLine();
+					
 					Term1_SendStr("Your score is: ");
 					Term1_EraseLine();
 					Term1_SendNum(score);
